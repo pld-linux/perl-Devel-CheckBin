@@ -8,16 +8,16 @@
 Summary:	Devel::CheckBin - check that a command is available
 Summary(pl.UTF-8):	Devel::CheckBin - sprawdzanie dostępności polecenia
 Name:		perl-Devel-CheckBin
-Version:	0.02
+Version:	0.04
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/Devel/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	aaa02a1262bc3eb3a7e5566590cb7814
+# Source0-md5:	042b68e48d9b53de7d3ef4c726d57cb2
 URL:		http://search.cpan.org/dist/Devel-CheckBin/
-BuildRequires:	perl-Module-Build >= 0.38
-BuildRequires:	perl-devel >= 1:5.8.0
+BuildRequires:	perl-ExtUtils-MakeMaker >= 6.64
+BuildRequires:	perl-devel >= 1:5.8.1
 BuildRequires:	rpm-perlprov >= 4.1-13
 %if %{with tests}
 BuildRequires:	perl-Test-Simple >= 0.98
@@ -37,17 +37,18 @@ dostępne.
 %setup -q -n %{pdir}-%{pnam}-%{version}
 
 %build
-%{__perl} Build.PL \
-	destdir=$RPM_BUILD_ROOT \
-	installdirs=vendor
-./Build
+%{__perl} Makefile.PL \
+	INSTALLDIRS=vendor
 
-%{?with_tests:./Build test}
+%{__make}
+
+%{?with_tests:%{__make} test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-./Build install
+%{__make} pure_install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
