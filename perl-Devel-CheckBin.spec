@@ -4,7 +4,6 @@
 #
 %define		pdir	Devel
 %define		pnam	CheckBin
-%include	/usr/lib/rpm/macros.perl
 Summary:	Devel::CheckBin - check that a command is available
 Summary(pl.UTF-8):	Devel::CheckBin - sprawdzanie dostępności polecenia
 Name:		perl-Devel-CheckBin
