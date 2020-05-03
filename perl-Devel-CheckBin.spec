@@ -14,10 +14,11 @@ License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/Devel/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	042b68e48d9b53de7d3ef4c726d57cb2
-URL:		http://search.cpan.org/dist/Devel-CheckBin/
+URL:		https://metacpan.org/release/Devel-CheckBin
 BuildRequires:	perl-ExtUtils-MakeMaker >= 6.64
 BuildRequires:	perl-devel >= 1:5.8.1
 BuildRequires:	rpm-perlprov >= 4.1-13
+BuildRequires:	rpmbuild(macros) >= 1.745
 %if %{with tests}
 BuildRequires:	perl-Test-Simple >= 0.98
 %endif
