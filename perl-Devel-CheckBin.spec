@@ -8,7 +8,7 @@ Summary:	Devel::CheckBin - check that a command is available
 Summary(pl.UTF-8):	Devel::CheckBin - sprawdzanie dostępności polecenia
 Name:		perl-Devel-CheckBin
 Version:	0.04
-Release:	1
+Release:	2
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
